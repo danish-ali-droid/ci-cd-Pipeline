@@ -24,7 +24,7 @@ jobs:
       run: npm start
     - name: test  the project
       run:  npm test && echo " app is running"
-  build-&-push:
+  build_push:
     needs: test
     runs-on: ubuntu-latest
     steps:
