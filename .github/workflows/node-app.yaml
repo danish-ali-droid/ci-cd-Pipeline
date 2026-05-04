@@ -9,7 +9,7 @@ on:
     paths:
       - 'node-app-pipeline/**'
 jobs:
-  build:
+  test:
     runs-on: ubuntu:latest
     steps:
     - name: check the code
@@ -24,6 +24,19 @@ jobs:
       run: npm start
     - name: test  the project
       run:  npm test && echo " app is running"
-
-
-           
+  build-&-push:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+     - name: check the code
+       uses: actions/checkout@v4
+     - name: login to docker
+     - uses: docker/login-action@v4    
+       with:
+         username: ${{DOCKER_USERNAME}}
+         password: ${{DOCKER_PASSWORD}}
+     - name: build and push
+       uses: docker/build-push@v6
+       with:
+         push: true
+         tag: ${{DOCKER_USERNAME}}/my-node-app:latest
