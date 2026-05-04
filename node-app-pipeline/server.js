@@ -11,5 +11,5 @@ app.get('/', (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`Hotel management frontend  is  running on http://localhost:${PORT}`);
+  console.log(`Hotel management frontend is running on http://localhost:${PORT}`);
 });
