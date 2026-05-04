@@ -11,8 +11,6 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-    defaults:
-      working-directory: ./project-1
     steps:
     - name: checkout the code
       uses: actions/checkout@v4
@@ -25,4 +23,4 @@ jobs:
         pip install flask pytest
         if [ -f requirements.txt ]; then pip install -r requirments.txt; fi
     - name: run  test
-      run: pytest test_app.py
+      run: pytest project/test_app.py
