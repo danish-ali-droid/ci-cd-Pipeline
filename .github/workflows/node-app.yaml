@@ -14,13 +14,15 @@ jobs:
     - name: check the code
       uses: actions/checkout@v4
     - name: setup node
-      uses: actions/setup-node
+      uses: actions/setup-node@v4
       with:
-       node: 20
+       node-version: '20'
     - name: install dependencies
       run:  npm install
     - name: start the project
-      run:  npm start
+      run: npm start
+    - name: test  the project
+      run:  npm test && echo " app is running"
 
 
            
