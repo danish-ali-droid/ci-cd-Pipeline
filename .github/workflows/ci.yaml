@@ -23,4 +23,4 @@ jobs:
         pip install flask pytest
         if [ -f requirements.txt ]; then pip install -r requirments.txt; fi
     - name: run  test
-      run: pytest project/test_app.py
+      run: pytest project-1/test_app.py
