@@ -1,27 +1,22 @@
-name: Node CI
+name: my flask-app ci
 on:
   push:
-    branches: [ main ]
-    paths:
-       - 'Practice-Gha-Node/**'
+     branches: [main]
   pull_request:
-    branches: [ main ]
-    paths:
-      - 'Practice-Gha-Node/**'
+     branches: [main]
 jobs:
-   ci:
-      runs-on: ubuntu-latest
-      steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-      - name: Setup node.js
-        uses: actions/setup-node@v4
-        with:
-         node-version: '20'
-         cache: npm
-      - name: install deps
-        run: npm ci
-      - name: Run lint
-        run: npm run lint
-      - name: Run tests
-        run: npm run test
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: checkout the code
+      uses: actions/checkout@v4
+    - name: setup python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+    - name: install dependencies
+      run: |
+        pip install flask pytest
+        if [ -f requirements.txt ]; then pip install -r requirments.txt; fi
+    - name: run  test
+      run: pytest test_app.py
