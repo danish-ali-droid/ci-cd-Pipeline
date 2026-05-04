@@ -9,6 +9,7 @@ on:
     paths:
       - 'node-app-pipeline/**'
 jobs:
+  runs-on: ubuntu:latest
   build:
     steps:
     - name: check the code
