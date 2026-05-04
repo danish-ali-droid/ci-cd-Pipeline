@@ -25,6 +25,7 @@ jobs:
     - name: run  test
       run: pytest project-1/test_app.py
   Build-push:
+    needs: test
     runs-on: ubuntu-latest
     steps:
       - name: checkout code
@@ -39,4 +40,6 @@ jobs:
         with:
           context: ./project-1
           push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/flask-app:latest
+          tags: |
+            ${{ secrets.DOCKER_USERNAME }}/flask-app:latest
+            ${{ secrets.DOCKER_USERNAME }}/flask-app:v${{ github.run_number }}
