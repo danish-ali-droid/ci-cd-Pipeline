@@ -2,10 +2,14 @@ name: my flask-app ci
 on:
   push:
      branches: [main]
+     path:
+       - 'project-1/**' 
   pull_request:
      branches: [main]
+     path:
+       - 'project-1/**'
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
     steps:
     - name: checkout the code
