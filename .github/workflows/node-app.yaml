@@ -11,6 +11,9 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./node-app-pipeline
     steps:
     - name: check the code
       uses: actions/checkout@v4
