@@ -1,0 +1,26 @@
+name: my node app
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'node-app-pipeline/**'
+  pull_request: 
+    branches: [main]
+    paths:
+      - 'node-app-pipeline/**'
+jobs:
+  build:
+    steps:
+    - name: check the code
+      uses: actions/checkout@v4
+    - name: setup node
+      uses: actions/setup-node
+      with:
+       node: 20
+    - name: install dependencies
+      run:  npm install
+    - name: start the project
+      run:  npm start
+
+
+           
