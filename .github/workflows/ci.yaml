@@ -11,6 +11,8 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    defaults:
+      working-directory: ./project-1
     steps:
     - name: checkout the code
       uses: actions/checkout@v4
