@@ -3,11 +3,11 @@ on:
   push:
     branches: [main]
     paths:
-      - 'project-1/**'
+      - 'flask-app-pipeline/**'
   pull_request:
     branches: [main]
     paths:
-      - 'project-1/**'
+      - 'flask-app-pipeline/**'
 
 jobs:
   test:
@@ -27,7 +27,7 @@ jobs:
           pip install -r project-1/requirements.txt
 
       - name: Run tests
-        run: pytest project-1/test_app.py
+        run: pytest flask-app-pipeline/test_app.py
 
   build_push:
     needs: test
