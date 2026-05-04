@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hotel Management</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="app-header">
+      <div>
+        <h1>Hotel Management</h1>
+        <p>Manage hotels, rooms, pricing, and availability from one page.</p>
+      </div>
+      <div class="status-chip" id="hotel-count">0 hotels</div>
+    </header>
+
+    <section class="panel add-panel">
+      <h2>Add / Edit Hotel</h2>
+      <form id="hotel-form">
+        <input type="hidden" id="hotel-id" />
+        <label>
+          Hotel name
+          <input type="text" id="hotel-name" placeholder="Silver Beach Resort" required />
+        </label>
+        <label>
+          Location
+          <input type="text" id="hotel-location" placeholder="Miami, FL" required />
+        </label>
+        <label>
+          Rooms available
+          <input type="number" id="hotel-rooms" min="1" value="10" required />
+        </label>
+        <label>
+          Price per night ($)
+          <input type="number" id="hotel-price" min="1" value="120" required />
+        </label>
+        <label>
+          Status
+          <select id="hotel-status">
+            <option value="Open">Open</option>
+            <option value="Closed">Closed</option>
+            <option value="Renovating">Renovating</option>
+          </select>
+        </label>
+        <div class="form-actions">
+          <button type="submit" class="primary-btn">Save hotel</button>
+          <button type="button" class="secondary-btn" id="cancel-edit">Clear</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="panel list-panel">
+      <div class="panel-header">
+        <h2>Hotel list</h2>
+        <input id="search-input" type="search" placeholder="Search by hotel name" />
+      </div>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Location</th>
+              <th>Rooms</th>
+              <th>Price</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="hotels-table-body"></tbody>
+        </table>
+      </div>
+      <div class="empty-state" id="empty-state">No hotels yet. Add one using the form above.</div>
+    </section>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>

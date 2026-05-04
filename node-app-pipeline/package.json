@@ -1,0 +1,21 @@
+{
+  "name": "hotel-management-frontend",
+  "version": "1.0.0",
+  "description": "Simple Node frontend page for hotel management",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [
+    "hotel",
+    "management",
+    "node",
+    "frontend",
+    "express"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.4"
+  }
+}
