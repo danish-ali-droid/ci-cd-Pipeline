@@ -23,8 +23,6 @@ jobs:
        node-version: '20'
     - name: install dependencies
       run:  npm install
-    - name: start the project
-      run: npm start
     - name: test  the project
       run:  npm test && echo " app is running"
   build_push:
