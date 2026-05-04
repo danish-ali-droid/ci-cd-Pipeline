@@ -10,7 +10,7 @@ on:
       - 'node-app-pipeline/**'
 jobs:
   test:
-    runs-on: ubuntu:latest
+    runs-on: ubuntu-latest
     steps:
     - name: check the code
       uses: actions/checkout@v4
