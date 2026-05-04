@@ -42,5 +42,7 @@ jobs:
      - name: build and push
        uses: docker/build-push-action@v6
        with:
+         context: ./node-app-pipeline
+         file: ./node-app-pipeline/Dockerfile
          push: true
          tags: ${{ secrets.DOCKER_USERNAME }}/my-node-app:latest
