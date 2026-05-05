@@ -43,15 +43,20 @@ jobs:
         working-directory: ./simple-nginx-static-pipeline
      needs: build_push
      steps:
-       - name: ssh the instance 
-         uses: appleboy/ssh-action@v1.0.3
-         with:
-           username: ${{ secrets.SERVER_NAME }}
-           key: ${{ secrets.SERVER_KEY }}
-           host: ${{ secrets.SERVER_HOST }}
+       # - name: ssh the instance 
+       #  uses: appleboy/ssh-action@v1.0.3
+       #  with:
+       #    username: ${{ secrets.SERVER_NAME }}
+       #    key: ${{ secrets.SERVER_KEY }}
+       #    host: ${{ secrets.SERVER_HOST }}
        - name: checking job is running
          run: echo " login successfull.. "
-
-           
-
+       - name: deply application
+         run: |
+          docker pull ${{ secrets.DOCKER_USERNAME }}/my-static-website:latest
+          docker stop my-website-container || true
+          docker rm  my-website-container || true
+          docker run -d --name my-website-container -p 8080:80  ${{ secrets.DOCKER_USERNAME }}/my-static-website:latest 
+                   
+          
     
