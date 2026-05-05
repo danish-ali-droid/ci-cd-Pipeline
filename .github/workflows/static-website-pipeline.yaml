@@ -30,5 +30,7 @@ jobs:
        - name: build and push to docker registory
          uses: docker/build-push-action@v6
          with:
+           context: ./simple-nginx-static-pipeline
+           file: ./simple-nginx-static-pipeline/Dockerfile
            push: true
            tags: ${{ secrets.DOCKER_USERNAME }}/my-static-website:latest 
