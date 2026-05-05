@@ -1,0 +1,18 @@
+name: ci-cd pipeline for static website
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'simple-nginx-static-pipeline/**'
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+       working-directory: ./simple-nginx-static-pipeline/
+    steps:
+     - name: check the code
+       uses: actions/checkout@v4
+     - name: making test
+       run: echo " code is correct"
+

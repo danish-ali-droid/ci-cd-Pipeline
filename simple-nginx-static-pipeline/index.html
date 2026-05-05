@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="description" content="FlavorHaven - A delightful culinary experience with fresh ingredients, signature dishes, and cozy atmosphere.">
+  <title>FlavorHaven | Savor the Art of Food</title>
+  <!-- Google Fonts & Font Awesome -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #fffaf5;
+      color: #2e241f;
+      line-height: 1.5;
+      scroll-behavior: smooth;
+    }
+
+    /* container utility */
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* header & navigation */
+    header {
+      background-color: rgba(255, 250, 245, 0.96);
+      backdrop-filter: blur(4px);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid #ffe1c4;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      padding: 1rem 0;
+      gap: 1rem;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #c23b22;
+      letter-spacing: -0.5px;
+    }
+    .logo span {
+      color: #f39c12;
+      font-weight: 500;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.2rem;
+      flex-wrap: wrap;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-weight: 500;
+      color: #3e2c24;
+      transition: color 0.2s ease;
+      font-size: 1rem;
+    }
+
+    .nav-links a:hover {
+      color: #e67e22;
+    }
+
+    /* buttons */
+    .btn-primary, .btn-secondary, .btn-outline {
+      display: inline-block;
+      padding: 0.8rem 1.8rem;
+      border-radius: 40px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.25s ease;
+      cursor: pointer;
+      border: none;
+      font-family: inherit;
+      font-size: 0.95rem;
+    }
+
+    .btn-primary {
+      background-color: #e67e22;
+      color: white;
+      box-shadow: 0 4px 10px rgba(230, 126, 34, 0.2);
+    }
+    .btn-primary:hover {
+      background-color: #cf711f;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(230, 126, 34, 0.3);
+    }
+
+    .btn-secondary {
+      background-color: transparent;
+      border: 1.5px solid #e67e22;
+      color: #e67e22;
+    }
+    .btn-secondary:hover {
+      background-color: #e67e22;
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 1px solid #d1b48c;
+      color: #5a3e2e;
+    }
+    .btn-outline:hover {
+      border-color: #e67e22;
+      background: #fff0e0;
+    }
+
+    /* hero section */
+    .hero {
+      padding: 4rem 0 5rem 0;
+    }
+    .hero-grid {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 3rem;
+    }
+    .hero-content {
+      flex: 1;
+      min-width: 260px;
+    }
+    .hero-content h1 {
+      font-size: 3.2rem;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 1.2rem;
+      color: #2c1d15;
+    }
+    .hero-content p {
+      font-size: 1.1rem;
+      color: #5f4a3a;
+      margin-bottom: 2rem;
+      max-width: 500px;
+    }
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .hero-image {
+      flex: 1;
+      min-width: 260px;
+      border-radius: 2rem;
+      overflow: hidden;
+      box-shadow: 0 20px 30px -12px rgba(0,0,0,0.1);
+    }
+    .hero-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+    .hero-image:hover img {
+      transform: scale(1.02);
+    }
+
+    /* section headings */
+    .section-heading {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    .section-heading h2 {
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: #2c1d15;
+      margin-bottom: 0.6rem;
+    }
+    .section-heading p {
+      font-size: 1rem;
+      color: #b97f52;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* menu cards grid */
+    .dishes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin: 2rem 0 1rem;
+    }
+    .dish-card {
+      background: white;
+      border-radius: 1.8rem;
+      overflow: hidden;
+      box-shadow: 0 12px 28px rgba(0,0,0,0.05);
+      transition: all 0.3s cubic-bezier(0.2, 0, 0, 1);
+    }
+    .dish-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 22px 35px -12px rgba(0,0,0,0.12);
+    }
+    .dish-img {
+      height: 220px;
+      overflow: hidden;
+    }
+    .dish-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s;
+    }
+    .dish-card:hover .dish-img img {
+      transform: scale(1.05);
+    }
+    .dish-info {
+      padding: 1.5rem;
+    }
+    .dish-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+    }
+    .price {
+      color: #e67e22;
+      font-weight: 700;
+      font-size: 1.3rem;
+    }
+    .dish-desc {
+      color: #6b4e3a;
+      font-size: 0.9rem;
+      margin: 0.7rem 0 1.2rem;
+      line-height: 1.4;
+    }
+    .order-btn {
+      background: none;
+      border: none;
+      font-weight: 600;
+      color: #e67e22;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.9rem;
+      transition: gap 0.2s;
+    }
+    .order-btn i {
+      font-size: 0.8rem;
+    }
+    .order-btn:hover {
+      gap: 12px;
+      color: #bf5712;
+    }
+
+    /* about section */
+    .about-section {
+      background: #fff6ed;
+      margin: 3rem 0;
+      padding: 4rem 0;
+      border-radius: 3rem;
+    }
+    .about-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3rem;
+      align-items: center;
+    }
+    .about-content {
+      flex: 1.2;
+    }
+    .about-content h3 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #2c1d15;
+    }
+    .about-content p {
+      margin-bottom: 1rem;
+      color: #4e3a2a;
+    }
+    .about-img {
+      flex: 1;
+      border-radius: 2rem;
+      overflow: hidden;
+      box-shadow: 0 15px 20px -8px rgba(0,0,0,0.1);
+    }
+    .about-img img {
+      width: 100%;
+      display: block;
+    }
+
+    /* testimonials */
+    .testimonials {
+      padding: 2rem 0 4rem;
+    }
+    .testimonial-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+    }
+    .testimonial-card {
+      background: white;
+      border-radius: 2rem;
+      padding: 2rem;
+      flex: 1 1 280px;
+      box-shadow: 0 12px 24px rgba(0,0,0,0.03);
+      border: 1px solid #ffebdd;
+      transition: 0.2s;
+    }
+    .testimonial-card i.fa-quote-left {
+      color: #e67e22;
+      font-size: 1.8rem;
+      opacity: 0.5;
+      margin-bottom: 0.8rem;
+      display: inline-block;
+    }
+    .testimonial-text {
+      font-style: italic;
+      margin: 1rem 0;
+      color: #2e241f;
+    }
+    .customer {
+      font-weight: 700;
+      margin-top: 0.8rem;
+      color: #c23b22;
+    }
+    .stars {
+      color: #f5b042;
+      letter-spacing: 2px;
+      margin-top: 0.5rem;
+    }
+
+    /* contact + form */
+    .contact-section {
+      background: linear-gradient(145deg, #ffffff 0%, #fef7f0 100%);
+      padding: 3rem 0 4rem;
+      border-radius: 3rem;
+      margin: 2rem 0;
+    }
+    .contact-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3rem;
+    }
+    .contact-info {
+      flex: 1;
+      background: white;
+      padding: 2rem;
+      border-radius: 2rem;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.02);
+    }
+    .contact-info h3 {
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
+    }
+    .info-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+    .info-item i {
+      width: 40px;
+      height: 40px;
+      background: #fff0e4;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: #e67e22;
+      font-size: 1.2rem;
+    }
+    .contact-form {
+      flex: 1.4;
+      background: white;
+      padding: 2rem;
+      border-radius: 2rem;
+      box-shadow: 0 12px 25px rgba(0,0,0,0.05);
+    }
+    .form-group {
+      margin-bottom: 1.3rem;
+    }
+    .form-group input, .form-group textarea {
+      width: 100%;
+      padding: 0.9rem 1rem;
+      border: 1px solid #f0d5be;
+      border-radius: 1.2rem;
+      font-family: inherit;
+      background: #fffdfb;
+      transition: 0.2s;
+    }
+    .form-group input:focus, .form-group textarea:focus {
+      outline: none;
+      border-color: #e67e22;
+      box-shadow: 0 0 0 3px rgba(230,126,34,0.1);
+    }
+    button[type="submit"] {
+      background-color: #e67e22;
+      border: none;
+      width: 100%;
+      padding: 1rem;
+      font-weight: 600;
+      color: white;
+      border-radius: 2rem;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    button[type="submit"]:hover {
+      background-color: #cf711f;
+    }
+
+    /* footer */
+    footer {
+      background: #1e1611;
+      color: #e9d9cd;
+      padding: 2.5rem 0 1.5rem;
+      margin-top: 2rem;
+      text-align: center;
+    }
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      align-items: center;
+      margin-bottom: 1.5rem;
+    }
+    .social-links a {
+      color: #fce2cf;
+      margin: 0 0.6rem;
+      font-size: 1.4rem;
+      transition: color 0.2s;
+    }
+    .social-links a:hover {
+      color: #e67e22;
+    }
+    .copyright {
+      font-size: 0.8rem;
+      opacity: 0.7;
+    }
+
+    @media (max-width: 768px) {
+      .navbar {
+        flex-direction: column;
+      }
+      .hero-content h1 {
+        font-size: 2.4rem;
+      }
+      .container {
+        padding: 0 1.5rem;
+      }
+      .section-heading h2 {
+        font-size: 2rem;
+      }
+    }
+    @media (max-width: 480px) {
+      .hero-buttons .btn-primary, .hero-buttons .btn-secondary {
+        width: 100%;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="container">
+    <div class="navbar">
+      <div class="logo">Flavor<span>Haven</span></div>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- HERO SECTION (home) -->
+  <section id="home">
+    <div class="container hero">
+      <div class="hero-grid">
+        <div class="hero-content">
+          <h1>Savor the Art<br> of Flavorful Food</h1>
+          <p>Where fresh ingredients meet passion. Experience bold tastes, cozy vibes, and unforgettable dishes crafted by top chefs.</p>
+          <div class="hero-buttons">
+            <a href="#menu" class="btn-primary">Explore Menu <i class="fas fa-arrow-right"></i></a>
+            <a href="#contact" class="btn-secondary">Reserve a Table</a>
+          </div>
+        </div>
+        <div class="hero-image">
+          <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&auto=format" alt="Delicious food spread" loading="eager">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED / SIGNATURE MENU -->
+  <section id="menu">
+    <div class="container">
+      <div class="section-heading">
+        <h2>Signature Dishes</h2>
+        <p>Handcrafted with love — every plate tells a story</p>
+      </div>
+      <div class="dishes-grid">
+        <!-- Dish 1 -->
+        <div class="dish-card">
+          <div class="dish-img">
+            <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=500&auto=format" alt="Truffle Mushroom Pizza">
+          </div>
+          <div class="dish-info">
+            <div class="dish-title">
+              <span>Truffle Mushroom Pizza</span>
+              <span class="price">$18.9</span>
+            </div>
+            <p class="dish-desc">Wild mushrooms, truffle oil, mozzarella, fresh arugula on sourdough crust.</p>
+            <button class="order-btn" data-dish="Truffle Mushroom Pizza">Order Now <i class="fas fa-chevron-right"></i></button>
+          </div>
+        </div>
+        <!-- Dish 2 -->
+        <div class="dish-card">
+          <div class="dish-img">
+            <img src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=500&auto=format" alt="Grilled Citrus Salmon">
+          </div>
+          <div class="dish-info">
+            <div class="dish-title">
+              <span>Grilled Citrus Salmon</span>
+              <span class="price">$26.5</span>
+            </div>
+            <p class="dish-desc">Fresh Atlantic salmon, lemon herb glaze, seasonal veggies, wild rice.</p>
+            <button class="order-btn" data-dish="Grilled Citrus Salmon">Order Now <i class="fas fa-chevron-right"></i></button>
+          </div>
+        </div>
+        <!-- Dish 3 -->
+        <div class="dish-card">
+          <div class="dish-img">
+            <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=500&auto=format" alt="Harvest Veggie Bowl">
+          </div>
+          <div class="dish-info">
+            <div class="dish-title">
+              <span>Harvest Veggie Bowl</span>
+              <span class="price">$16.2</span>
+            </div>
+            <p class="dish-desc">Quinoa, roasted sweet potatoes, avocado, kale, tahini dressing, seeds.</p>
+            <button class="order-btn" data-dish="Harvest Veggie Bowl">Order Now <i class="fas fa-chevron-right"></i></button>
+          </div>
+        </div>
+        <!-- Dish 4 -->
+        <div class="dish-card">
+          <div class="dish-img">
+            <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=500&auto=format" alt="Molten Chocolate Cake">
+          </div>
+          <div class="dish-info">
+            <div class="dish-title">
+              <span>Lava Chocolate Cake</span>
+              <span class="price">$9.5</span>
+            </div>
+            <p class="dish-desc">Warm chocolate lava, vanilla bean ice cream, fresh berries.</p>
+            <button class="order-btn" data-dish="Molten Chocolate Cake">Order Now <i class="fas fa-chevron-right"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT SECTION -->
+  <section id="about" class="about-section">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-content">
+          <h3>Our Culinary Story</h3>
+          <p>FlavorHaven was born from a love of authentic, soulful cooking and the joy of sharing meals. Our chefs work with local farmers and artisans to bring you the freshest seasonal ingredients.</p>
+          <p>Every dish reflects our commitment to quality, sustainability, and creativity. We believe food is an experience — from first bite to last.</p>
+          <a href="#contact" class="btn-outline" style="margin-top: 0.6rem;">Meet the team →</a>
+        </div>
+        <div class="about-img">
+          <img src="https://images.unsplash.com/photo-1551218808-94e220e084d2?w=600&auto=format" alt="Chef cooking with passion">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <div class="container testimonials">
+    <div class="section-heading">
+      <h2>Loved by Food Lovers</h2>
+      <p>What our guests say about their FlavorHaven experience</p>
+    </div>
+    <div class="testimonial-grid">
+      <div class="testimonial-card">
+        <i class="fas fa-quote-left"></i>
+        <p class="testimonial-text">“The truffle pizza is out of this world! Cozy atmosphere and the staff is super friendly. Will definitely come back.”</p>
+        <div class="stars">★★★★★</div>
+        <div class="customer">— Sofia R.</div>
+      </div>
+      <div class="testimonial-card">
+        <i class="fas fa-quote-left"></i>
+        <p class="testimonial-text">“Incredible vegan options! Their harvest bowl is my go-to. The flavors are so vibrant and fresh.”</p>
+        <div class="stars">★★★★★</div>
+        <div class="customer">— Marcus L.</div>
+      </div>
+      <div class="testimonial-card">
+        <i class="fas fa-quote-left"></i>
+        <p class="testimonial-text">“Amazing service and the lava cake is perfection. Best hidden gem in town, highly recommend.”</p>
+        <div class="stars">★★★★☆</div>
+        <div class="customer">— Jenna K.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTACT & RESERVATION -->
+  <section id="contact">
+    <div class="container contact-section">
+      <div class="section-heading">
+        <h2>Reserve a Table</h2>
+        <p>We’d love to host you — book online or drop a message</p>
+      </div>
+      <div class="contact-wrapper">
+        <div class="contact-info">
+          <h3>📍 Visit Us</h3>
+          <div class="info-item"><i class="fas fa-map-marker-alt"></i> 42 Foodie Lane, Culinary District, NYC</div>
+          <div class="info-item"><i class="fas fa-phone-alt"></i> +1 (555) 678-2934</div>
+          <div class="info-item"><i class="fas fa-envelope"></i> hello@flavorhaven.com</div>
+          <div class="info-item"><i class="fas fa-clock"></i> Mon-Sun: 11:00 AM – 11:00 PM</div>
+          <p style="margin-top: 1.2rem;">✨ Walk-ins welcome, but reservations recommended for weekends.</p>
+        </div>
+        <div class="contact-form">
+          <form id="reservationForm">
+            <div class="form-group"><input type="text" placeholder="Full name" id="name" required></div>
+            <div class="form-group"><input type="email" placeholder="Email address" id="email" required></div>
+            <div class="form-group"><input type="tel" placeholder="Phone number" id="phone"></div>
+            <div class="form-group"><textarea rows="3" placeholder="Special requests or date & time" id="message"></textarea></div>
+            <button type="submit">Send Reservation Request <i class="fas fa-utensils"></i></button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-content">
+      <div class="logo" style="color:#fbe4d2;">Flavor<span style="color:#f39c12;">Haven</span></div>
+      <div class="social-links">
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+      </div>
+    </div>
+    <div class="copyright">
+      <p>© 2025 FlavorHaven — Savor every moment. | Crafted for food lovers</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Interactive demo: order buttons alert + contact form alert
+  const orderBtns = document.querySelectorAll('.order-btn');
+  orderBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const dishName = btn.getAttribute('data-dish') || 'this dish';
+      alert(`🍽️ "${dishName}" added to your order! (demo mode)\nWe'll contact you to confirm delivery or table service.`);
+    });
+  });
+
+  // Contact form handling: prevent default and show confirmation
+  const form = document.getElementById('reservationForm');
+  if (form) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('name')?.value.trim();
+      if(!name) {
+        alert('Please enter your name.');
+        return;
+      }
+      alert(`✨ Thanks ${name}! Your reservation request has been received. We’ll reach out soon to confirm.`);
+      form.reset();
+    });
+  }
+
+  // Smooth anchor highlight for nav (optional elegance)
+  const navLinks = document.querySelectorAll('.nav-links a');
+  navLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      const targetId = this.getAttribute('href');
+      if(targetId && targetId.startsWith('#') && targetId !== '#') {
+        const targetEl = document.querySelector(targetId);
+        if(targetEl) {
+          e.preventDefault();
+          targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          // update URL hash without jumping
+          history.pushState(null, null, targetId);
+        }
+      }
+    });
+  });
+</script>
+</body>
+</html>
