@@ -49,6 +49,9 @@ jobs:
            username: ${{ secrets.SERVER_NAME }}
            key: ${{ secrets.SERVER_KEY }}
            host: ${{ secrets.SERVER_HOST }}
+       - name: checking job is running
+         run: echo " login successfull.. "
+
            
 
     
