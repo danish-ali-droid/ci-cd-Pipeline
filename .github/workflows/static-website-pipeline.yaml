@@ -36,3 +36,19 @@ jobs:
            file: ./simple-nginx-static-pipeline/Dockerfile
            push: true
            tags: ${{ secrets.DOCKER_USERNAME }}/my-static-website:latest 
+  Deploy: 
+     runs-on: ubuntu-latest
+     defaults:
+       run:
+        working-directory: ./simple-nginx-static-pipeline
+     needs: build_push
+     steps:
+       - name: ssh the instance 
+         uses: appleboy/ssh-action@v1.0.3
+         with:
+           username: ${{ secrets.SERVER_NAME }}
+           key: ${{ secrets.SERVER_KEY }}
+           host: ${{ secrets.SERVER_HOST }}
+           
+
+    
