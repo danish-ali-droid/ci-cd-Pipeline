@@ -38,9 +38,6 @@ jobs:
            tags: ${{ secrets.DOCKER_USERNAME }}/my-static-website:latest 
   Deploy: 
      runs-on:  self-hosted
-     defaults:
-       run:
-        working-directory: ./simple-nginx-static-pipeline
      needs: build_push
      steps:
        # - name: ssh the instance 
