@@ -1,11 +1,27 @@
+<div align="center">
+
 # 🤖 Automated CI/CD Pipeline Showcase
 
-> **Production-ready automation pipelines demonstrating artifact lifecycle management, containerized delivery, and frictionless deployment models — from source commit to live environment.**
+**Production-ready automation pipelines demonstrating artifact lifecycle management, containerized delivery, and frictionless deployment models — from source commit to live environment.**
 
-[![CI - Flask App](https://github.com/danish-ali/ci-cd-Pipeline/actions/workflows/ci.yaml/badge.svg)](https://github.com/danish-ali/ci-cd-Pipeline/actions/workflows/ci.yaml)
-[![CI - Node App](https://github.com/danish-ali/ci-cd-Pipeline/actions/workflows/node-app.yaml/badge.svg)](https://github.com/danish-ali/ci-cd-Pipeline/actions/workflows/node-app.yaml)
-[![CI - Static Site](https://github.com/danish-ali/ci-cd-Pipeline/actions/workflows/static-website-pipeline.yaml/badge.svg)](https://github.com/danish-ali/ci-cd-Pipeline/actions/workflows/static-website-pipeline.yaml)
-[![Node Practice CI](https://github.com/danish-ali/ci-cd-Pipeline/actions/workflows/gha-node-practice.yaml/badge.svg)](https://github.com/danish-ali/ci-cd-Pipeline/actions/workflows/gha-node-practice.yaml)
+<br>
+
+![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-Automated-2088FF?style=for-the-badge&logo=github-actions&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-Containerized-2496ED?style=for-the-badge&logo=docker&logoColor=white)
+![Python](https://img.shields.io/badge/Python-Flask_App-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![Node.js](https://img.shields.io/badge/Node.js-Express_App-339933?style=for-the-badge&logo=node.js&logoColor=white)
+![Nginx](https://img.shields.io/badge/Nginx-Static_Site-009639?style=for-the-badge&logo=nginx&logoColor=white)
+
+<br>
+
+**Pipeline Status**
+
+[![CI - Flask App](https://github.com/danish-ali-droid/ci-cd-Pipeline/actions/workflows/ci.yaml/badge.svg)](https://github.com/danish-ali-droid/ci-cd-Pipeline/actions/workflows/ci.yaml)
+[![CI - Node App](https://github.com/danish-ali-droid/ci-cd-Pipeline/actions/workflows/node-app.yaml/badge.svg)](https://github.com/danish-ali-droid/ci-cd-Pipeline/actions/workflows/node-app.yaml)
+[![CI - Static Site](https://github.com/danish-ali-droid/ci-cd-Pipeline/actions/workflows/static-website-pipeline.yaml/badge.svg)](https://github.com/danish-ali-droid/ci-cd-Pipeline/actions/workflows/static-website-pipeline.yaml)
+[![Node Practice CI](https://github.com/danish-ali-droid/ci-cd-Pipeline/actions/workflows/gha-node-practice.yaml/badge.svg)](https://github.com/danish-ali-droid/ci-cd-Pipeline/actions/workflows/gha-node-practice.yaml)
+
+</div>
 
 ---
 
@@ -240,5 +256,15 @@ ci-cd-Pipeline/
 | **Dependency Caching** | Node pipeline configures `cache: npm` in `actions/setup-node` to reduce cold-start dependency installation time |
 
 ---
+
+
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/danish-ali-47950b366?utm_source=share_via&utm_content=profile&utm_medium=member_android)
+[![GitHub](https://img.shields.io/badge/GitHub-Follow-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/danish-ali-droid)
+[![Email](https://img.shields.io/badge/Email-Contact-EA4335?style=for-the-badge&logo=gmail&logoColor=white)](mailto:0000danishsh@gmail.com)
+
+
+---
+
 
 </div>
