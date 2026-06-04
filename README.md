@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🤖 Automated CI/CD Pipeline Showcase
+# Automated CI/CD Pipeline Showcase
 
 **Production-ready automation pipelines demonstrating artifact lifecycle management, containerized delivery, and frictionless deployment models — from source commit to live environment.**
 
